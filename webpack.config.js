@@ -20,6 +20,7 @@ const config = {
         filename: "manifest.json",
         short_name: 'Budget App',
         description: 'My awesome Progressive Web App!',
+        start_url:'/',
         background_color: '#ffffff',
         crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
         icons: [

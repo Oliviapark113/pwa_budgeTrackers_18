@@ -15,7 +15,7 @@
   "short_name": "Budget App",
   "orientation": "portrait",
   "display": "standalone",
-  "start_url": ".",
+  "start_url": "/",
   "description": "My awesome Progressive Web App!",
   "background_color": "#ffffff"
 }

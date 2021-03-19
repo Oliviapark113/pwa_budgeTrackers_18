@@ -12,6 +12,8 @@ fetch("/api/transaction")
     populateTotal();
     populateTable();
     populateChart();
+  }).catch((error) => {
+    console.log(error);
   });
 
 function populateTotal() {
@@ -136,7 +138,13 @@ function sendTransaction(isAdding) {
   })
   .catch(err => {
     // fetch failed, so save in indexed db
+    if(err)
+     { 
+      console.log(err) 
+      }
+
     saveRecord(transaction);
+   
 
     // clear form
     nameEl.value = "";
@@ -145,9 +153,11 @@ function sendTransaction(isAdding) {
 }
 
 document.querySelector("#add-btn").onclick = function() {
+  // e.preventDefault();
   sendTransaction(true);
 };
 
 document.querySelector("#sub-btn").onclick = function() {
+  // e.preventDefault();
   sendTransaction(false);
 };
