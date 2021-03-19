@@ -4,6 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "webpack": "webpack",
+    "prestart": "npm run webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "lite-server": "lite-server"
@@ -25,5 +27,10 @@
     "mongoose": "^5.5.15",
     "morgan": "^1.9.1"
   },
-  "keywords": []
+  "keywords": [],
+  "devDependencies": {
+    "webpack": "^5.26.3",
+    "webpack-cli": "^4.5.0",
+    "webpack-pwa-manifest": "^4.3.0"
+  }
 }
