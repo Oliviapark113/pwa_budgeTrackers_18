@@ -58,4 +58,4 @@ Offline transaction recored Stored in IndexedDB.
 GitHub: https://github.com/Oliviapark113/pwa_budgeTrackers_18
 
 
-Heroku: https://stormy-stream-41757.herokuapp.com/
+Heroku: https://whispering-plateau-19333.herokuapp.com/
