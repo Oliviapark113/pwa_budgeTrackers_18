@@ -1,6 +1,7 @@
 let transactions = [];
 let myChart;
 let db;
+let transaction;
 
 
 fetch("/api/transaction")
@@ -98,7 +99,7 @@ function sendTransaction(isAdding) {
 
 
   // create record
-  let transaction = {
+   transaction = {
     name: nameEl.value,
     value: amountEl.value,
     date: new Date().toISOString()
@@ -163,10 +164,19 @@ request.onerror = e => console.log(e.target.errorCode)
 
 request.onupgradeneeded = e =>{
   const db = e.target.result;
+  console.log("db0" , db)
   db.createObjectStore("transaction", {keyPath: "id", autoIncrement: true})
 }
 
+request.onsuccess = e =>{
+  //set global db to opened DB
+  db = e.target.result
+  console.log(`Sucessfully opened ${db.name}`)
+ 
+ }
+
 const getBudgetTransactionStore =() =>{
+
   const transaction = db.transaction(["transaction"], "readwrite")
   return transaction.objectStore("transaction")
 }
@@ -182,6 +192,7 @@ function saveRecord (transData){
     value:transData.value,
     date: transData.date
   })
+  
 
  
  }
@@ -192,13 +203,13 @@ function saveRecord (transData){
 document.querySelector("#add-btn").onclick = function() {
  
   sendTransaction(true);
-  saveRecord(transaction)
+ 
  
 };
 
 document.querySelector("#sub-btn").onclick = function() {
 
   sendTransaction(false);
-  saveRecord(transaction)
+
   
 };
