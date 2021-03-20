@@ -7,7 +7,7 @@ const config = {
     entry: "./public/index.js",
     output: {
       // Set the path and filename for the output bundle (hint: You will need to use "__dirname")
-      path: __dirname+ "/public/dist/",
+      path: path.join(__dirname, "dist"),
       filename: "bundle.js"
     },
     mode: "production",
