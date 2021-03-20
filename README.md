@@ -1,4 +1,4 @@
-# Unit 18 PWA Homework: Online/Offline Budget Trackers
+# PWA: Online/Offline Budget_Trackers_18
 
 
 Add functionality to our existing Budget Tracker application to allow for offline access and functionality.
@@ -24,8 +24,11 @@ SO THAT my account balance is accurate when I am traveling
 
 Giving users a fast and easy way to track their money is important, but allowing them to access that information anytime is even more important. Having offline functionality is paramount to our applications success.
 
+![demo](./demo/demo.gif)
 
-## Acceptance Criteria
-GIVEN a user is on Budget App without an internet connection
-WHEN the user inputs a withdrawal or deposit
-THEN that will be shown on the page, and added to their transaction history when their connection is back online.
+
+# Website Deploy Links
+GitHub: https://github.com/Oliviapark113/pwa_budgeTrackers_18
+
+
+Heroku: https://stormy-stream-41757.herokuapp.com/

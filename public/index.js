@@ -1,5 +1,7 @@
 let transactions = [];
 let myChart;
+let db;
+
 
 fetch("/api/transaction")
   .then(response => {
@@ -94,12 +96,14 @@ function sendTransaction(isAdding) {
     errorEl.textContent = "";
   }
 
+
   // create record
   let transaction = {
     name: nameEl.value,
     value: amountEl.value,
     date: new Date().toISOString()
   };
+
 
   // if subtracting funds, convert amount to negative number
   if (!isAdding) {
@@ -152,12 +156,49 @@ function sendTransaction(isAdding) {
   });
 }
 
+
+
+const request = window.indexedDB.open("BudgetDB", 1);
+request.onerror = e => console.log(e.target.errorCode)
+
+request.onupgradeneeded = e =>{
+  const db = e.target.result;
+  db.createObjectStore("transaction", {keyPath: "id", autoIncrement: true})
+}
+
+const getBudgetTransactionStore =() =>{
+  const transaction = db.transaction(["transaction"], "readwrite")
+  return transaction.objectStore("transaction")
+}
+
+
+function saveRecord (transData){
+
+  console.log("transaction",transData)
+  const store = getBudgetTransactionStore()
+  // adding data
+  store.add({
+    name:transData.name,
+    value:transData.value,
+    date: transData.date
+  })
+
+ 
+ }
+
+
+
+
 document.querySelector("#add-btn").onclick = function() {
-  // e.preventDefault();
+ 
   sendTransaction(true);
+  saveRecord(transaction)
+ 
 };
 
 document.querySelector("#sub-btn").onclick = function() {
-  // e.preventDefault();
+
   sendTransaction(false);
+  saveRecord(transaction)
+  
 };
