@@ -8,7 +8,6 @@
     "prestart": "npm run webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "build":"webpack --mode production",
     "lite-server": "lite-server"
   },
   "repository": {
@@ -26,12 +25,13 @@
     "express": "^4.17.1",
     "lite-server": "^2.5.3",
     "mongoose": "^5.5.15",
-    "morgan": "^1.9.1"
-  },
-  "keywords": [],
-  "devDependencies": {
+    "morgan": "^1.9.1",
     "webpack": "^5.26.3",
     "webpack-cli": "^4.5.0",
     "webpack-pwa-manifest": "^4.3.0"
+  },
+  "keywords": [],
+  "devDependencies": {
+   
   }
 }
