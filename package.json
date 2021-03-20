@@ -8,6 +8,7 @@
     "prestart": "npm run webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
+    "build":"webpack --mode production",
     "lite-server": "lite-server"
   },
   "repository": {
